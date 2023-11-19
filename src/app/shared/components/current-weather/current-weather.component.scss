@@ -1,0 +1,67 @@
+.current-weather-details {
+
+    .details-container {
+        margin: 20px !important;
+
+        .city-name,
+        .weather-desc,
+        .feels-like-label {
+            font-size: 15px;
+            color: var(--blue-color-1);
+            font-weight: 600;
+
+        }
+
+        .city-name {
+            margin-bottom: 20px;
+        }
+
+        .weather-desc{
+            margin-bottom: 20px;
+        }
+
+        .weather-desc,
+        .feels-like-label {
+            opacity: 0.8;
+        }
+
+        .weather-icon {
+            width: 100px;
+            margin-left: -25px;
+           
+        }
+
+
+
+
+        .temp {
+            font-size: 100px;
+            color: var(--orange-color);
+            font-weight: 100;
+            margin-left: 20px;
+
+        }
+
+        .additional-details{
+
+            gap:16px;
+            margin-top: 10px;
+
+            
+            .desc{
+                color: var(--dark-gery-color);
+                font-size: 15px;
+                font-weight: 500;
+                width: 100px;
+            }
+
+            .value {
+                font-size: 15px;
+                color: var(--blue-color-1);
+                font-weight: 700;
+            }
+
+        }
+
+    }
+}

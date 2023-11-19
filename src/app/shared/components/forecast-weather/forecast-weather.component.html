@@ -1,0 +1,34 @@
+<mat-card class="wheater-card  forecast-weather-details">
+    <mat-card-content>
+
+        <label class="title">Extended Forecast</label>
+
+       
+        <table mat-table [dataSource]="sortedForecastData"  class="w-100 forecast-table"
+        matSort  matSortActive="date" matSortDisableClear matSortDirection="asc" (matSortChange)="sortByDate($event)">
+      <!-- Number Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Date</th>
+        <td mat-cell *matCellDef="let row">{{row.valid_date |  date: 'EEE, dd MMM'}}</td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="weather">
+        <th mat-header-cell *matHeaderCellDef>Weather</th>
+        <td mat-cell *matCellDef="let row">
+            <img class="img-fluid small-weather-icon" [src]="getWeatherIconURL(row.weather)">
+            {{row.weather.description}}</td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="minMaxTemp">
+        <th mat-header-cell *matHeaderCellDef>Min/Max Temperature</th>
+        <td mat-cell *matCellDef="let row">{{row.min_temp  | number : '1.0-0'}}° / {{row.max_temp  | number : '1.0-0'}}°</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    </mat-card-content>
+</mat-card>

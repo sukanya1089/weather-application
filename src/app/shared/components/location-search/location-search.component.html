@@ -1,0 +1,10 @@
+<mat-form-field  class="location-field w-100" appearance="fill">
+    <input matInput type="text" [(ngModel)]="cityName" placeholder="Enter City Name" (keydown.enter)="searchWithCityName()">
+    <button matSuffix mat-icon-button aria-label="Search" (click)="searchWithCityName()">
+        <mat-icon class="send-icon">send</mat-icon>
+    </button>
+    <button matSuffix mat-icon-button aria-label="Search" (click)="searchWithCoord()">
+        <mat-icon class="location-icon">my_location</mat-icon>
+    </button>
+    
+</mat-form-field>

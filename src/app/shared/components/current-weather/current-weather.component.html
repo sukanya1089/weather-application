@@ -1,0 +1,62 @@
+<mat-card class="wheater-card  current-weather-details">
+    <mat-card-content>
+
+        <label class="title">Current Weather</label>
+
+        <div class=" details-container ">
+            <div >
+                <label class="city-name w-100">{{currentWeatherData.city_name}}</label>
+
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid weather-icon" [src]="getWeatherIconURL()">
+
+                    <label class="temp">{{currentWeatherData.temp | number : '1.0-0' }}°</label>
+                </div>
+
+                <label class="w-100 weather-desc ">{{currentWeatherData?.weather.description | titlecase}}</label>
+
+
+            </div>
+
+            <div >
+                
+                    <div class="d-flex align-items-center additional-details">
+                        <!-- <mat-icon>airwave</mat-icon>  -->
+                        <label class="desc m-0">Feels Like </label>
+                        <label class="value m-0">{{currentWeatherData.app_temp | number :
+                            '1.0-0'
+                            }}°</label>
+                    </div>
+                <!-- <div class="d-flex align-items-center temp-min-max">
+                    <div class="d-flex align-items-center">
+                        <mat-icon>north</mat-icon> <label>{{currentWeatherData.main.temp_max}}°
+                        </label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <mat-icon>south</mat-icon> <label>{{currentWeatherData.main.temp_min}}°
+                        </label>
+                    </div>
+                </div> -->
+
+                <div class="d-flex align-items-center additional-details">
+                    <!-- <mat-icon>airwave</mat-icon>  -->
+                    <label class="desc m-0">Humidity </label>
+                    <label class="value m-0">{{currentWeatherData.rh | number : '1.0-0'}}% </label>
+                </div>
+                <div class="d-flex align-items-center additional-details">
+                    <!-- <mat-icon>airwave</mat-icon>  -->
+                    <label class="desc m-0">Wind </label>
+                    <label class="value m-0">{{currentWeatherData.wind_spd | number : '1.0-0'}} {{ unit === 'M' ? 'm/s' : 'mph'}} </label>
+                </div>
+                <div class="d-flex align-items-center additional-details">
+                    <!-- <mat-icon>airwave</mat-icon>  -->
+                    <label class="desc m-0">Pressure </label>
+                    <label class="value m-0">{{currentWeatherData.pres  | number : '1.0-0'}}mb </label>
+                </div>
+
+            </div>
+        </div>
+
+
+    </mat-card-content>
+</mat-card>

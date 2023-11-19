@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('./../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import url('./../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css');
+@import './colors.scss';
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--blue-color-2);
+}
+
+.wheater-card{
+    border-radius: 10px !important;
+    background-color: var(--white-color);
+    // box-shadow: 0 0 15px var(--dark-gery-color);
+    padding: 24px;
+
+    .title{
+        font-weight: 500;
+        color: gray;
+        font-size: 20px;
+      }
+}

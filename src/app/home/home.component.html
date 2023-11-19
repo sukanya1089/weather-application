@@ -1,0 +1,42 @@
+<div class="row justify-content-md-center home-container">
+    <div class="col-md-9 col-sm-12">
+
+        <div class="d-flex header-container align-items-center">
+            <app-location-search class="flex-grow-1" [cityName]="locationDetails?.cityName || '' "
+                (searchLocationDetails)="getWeatherDetails($event)" (showLoader)="loading = true"></app-location-search>
+            <div class="unit-switch position-relative d-flex" [ngClass]="{'active': currentUnit === 'I' }">
+                <div class="toggle-head">
+                    <!-- <mat-icon >device_thermostat</mat-icon> -->
+                </div>
+                <label class="unit" (click)="updateUnit('M')">C°</label>
+                <label class="unit" (click)="updateUnit('I')">F°</label>
+
+            </div>
+        </div>
+
+
+        <div class="row" *ngIf="!loading">
+            <div class="col-md-4 col-sm-12" *ngIf="currentWeatherDetails.city_name">
+                <app-current-weather [currentWeatherData]="currentWeatherDetails" [unit]="currentUnit">
+                </app-current-weather>
+            </div>
+            <div class="col-md-8 col-sm-12" *ngIf="forcastWeatherData.length">
+                <app-forecast-weather [forcastWeatherData]="forcastWeatherData"></app-forecast-weather>
+            </div>
+        </div>
+
+        <div *ngIf="loading" class="default-container d-flex justify-content-center align-items-center wheater-card">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div *ngIf="!loading && !currentWeatherDetails.city_name"
+            class="default-container d-flex justify-content-center align-items-center wheater-card ">
+            <img class="img-fluid no-data-icon" src="./../../assets/images/no-search-results-icon-retina.svg">
+            <label class="error-message w-100">{{errorMessage}}</label>
+        </div>
+
+    </div>
+</div>
